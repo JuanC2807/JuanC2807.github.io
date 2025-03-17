@@ -1,4 +1,8 @@
 /*Custom css */
-body{
+#hero-section h1{
     color: brown;
+}
+
+#footer-section h1{
+    color: blue;
 }
