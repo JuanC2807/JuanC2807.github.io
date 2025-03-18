@@ -1,1 +1,4 @@
 /*Custom css */
+.navbar{
+    z-index: 10;
+}
