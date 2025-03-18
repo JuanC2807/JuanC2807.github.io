@@ -7,3 +7,10 @@
 .navbar a{
     color: #E6E6E6;
 }
+
+#hero-section{
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(assets/Background.jpg);
+    background-position: cover;
+    background-size: cover;
+    padding: 200px 0px;
+}
