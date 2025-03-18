@@ -2,5 +2,8 @@
 .navbar{
     z-index: 10;
     background-color: #101935;
-    text-align: center;
+}
+
+.navbar a{
+    color: #E6E6E6;
 }
