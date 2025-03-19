@@ -2,6 +2,7 @@
 .navbar{
     z-index: 10;
     background-color: #101935;
+    padding: 50px 0px;
 }
 
 .navbar a{
@@ -11,7 +12,8 @@
 #hero-section{
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(assets/Background.jpg);
     background-position: center;
-    background-size: contain;
+    background-size: 100%;
     background-repeat: no-repeat;
+    height: fit-content;
     padding: 400px 0px;
 }
