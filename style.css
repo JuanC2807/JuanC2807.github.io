@@ -17,3 +17,14 @@
     padding-top: 50px;
     padding: 450px 0px;
 }
+
+#About-me-section {
+    background-color:#101935;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+#About-me-section h2{
+    color: #E6E6E6;
+}
+
