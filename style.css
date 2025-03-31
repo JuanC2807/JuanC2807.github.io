@@ -19,12 +19,16 @@
 }
 
 #About-me-section {
-    background-color:#101935;
+    background-color:#E6E6E6;
     padding-top: 50px;
     padding-bottom: 50px;
   }
 
 #About-me-section h2{
     color: #E6E6E6;
+}
+
+#About-me-Section p{
+    color: #123458;
 }
 
