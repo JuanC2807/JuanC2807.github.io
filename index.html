@@ -3,88 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSolis</title>
-    <!--Bootstrap Linking-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!--Bootstrap Linking-->
-
-    <!--Bootstrap Icons Linking-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <!--Bootstrap Icon Linking-->
-
-    <!--CSS file Linking-->
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <!--CSS file Linking-->
+    <title>Juan Solis | Portfolio</title>
+    <!--Styles-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arc+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!--Basic Nav Bar-->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-          <!-- Hamburger Toggle -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-  
-          <!-- Navbar Links -->
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto d-flex justify-content-center align-items-center">
-              <li class="nav-item">
-                <a class="nav-link" href="#About-me-section">About Me</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#skills-section">Skills</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact-section">Contact</a>
-              </li>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a href="#home">Juan Solis</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-          </div>
+        </nav>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Juan Solis</h1>
+                <p>Computer Science Student</p>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">A quick snapshot of who I am and what I like building.</p>
+
+                <div class="about-grid">
+                    <div class="about-media">
+                        <img class="about-photo" src="assets/profile-img.jpg" alt="Photo of Juan Solis">
+                    </div>
+
+                    <div class="about-content">
+                        <p class="about-lead">
+                        I’m a Computer Science student focused on building reliable software and learning systems-level concepts.
+                        I enjoy backend workflows, debugging, and projects that involve performance and clean engineering.
+                        </p>
+
+                        <div class="about-cards">
+                            <div class="about-card">
+                                <h3 class="about-card-title">Quick Facts</h3>
+                                <ul class="about-list">
+                                <li><strong>School:</strong> George Mason University</li>
+                                <li><strong>Focus:</strong> Software Engineering + Systems</li>
+                                <li><strong>Goal:</strong> Internship / SWE role</li>
+                                </ul>
+                            </div>
+
+                        <div class="about-card">
+                            <h3 class="about-card-title">What I Build</h3>
+                            <ul class="about-list">
+                            <li>Queue/workflow web apps</li>
+                            <li>OS + concurrency projects</li>
+                            <li>Tools that improve usability</li>
+                            </ul>
+                        </div>
+                        </div>
+
+                        <div class="about-actions">
+                        <a class="btn" href="#projects">View Projects</a>
+                        <a class="btn btn-outline" href="#contact">Contact</a>
+                        <a class="btn btn-outline" href="#skills">Skills</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">A few things I've built recently.</p>
+
+                <div class="projects-grid">
+                <article class="project-card">
+                    <img class="project-image" src="assets/wallace-wallace-and-gromit.gif" alt="Project screenshot">
+                    <div class="project-body">
+                    <h3 class="project-title">ODRR Web App</h3>
+                    <p class="project-desc">
+                        Java (Servlets) + MySQL workflow system with reviewer/approver queues and form submission.
+                    </p>
+
+                    <ul class="project-tags">
+                        <li>Java</li>
+                        <li>Tomcat</li>
+                        <li>MySQL</li>
+                    </ul>
+
+                    <div class="project-links">
+                    <!--
+                        <a class="btn" href="#" target="_blank" rel="noopener">Live</a>
+                        <a class="btn btn-outline" href="#" target="_blank" rel="noopener">Code</a>
+                    -->
+                    </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <img class="project-image" src="assets/project-placeholder.gif" alt="Project screenshot">
+                    <div class="project-body">
+                    <h3 class="project-title">Unix-like Task Manager Shell</h3>
+                    <p class="project-desc">
+                        C shell supporting fg/bg tasks, signals, redirection, and built-in task commands.
+                    </p>
+
+                    <ul class="project-tags">
+                        <li>C</li>
+                        <li>Signals</li>
+                        <li>OS</li>
+                    </ul>
+
+                    <div class="project-links">
+                    <!--
+                        <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+                    -->
+                    </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <img class="project-image" src="assets/project-placeholder.gif" alt="Project screenshot">
+                    <div class="project-body">
+                    <h3 class="project-title">OS/161 Kernel Work</h3>
+                    <p class="project-desc">
+                        Process table + syscalls, synchronization, and debugging in a teaching OS kernel.
+                    </p>
+                    <ul class="project-tags">
+                        <li>C</li>
+                        <li>Kernel</li>
+                        <li>Concurrency</li>
+                    </ul>
+                    <div class="project-links">
+                    <!--
+                        <a class="btn btn-outline" href="#" target="_blank" rel="noopener">Write-up</a>
+                    -->
+                    </div>
+                    </div>
+                </article>
+
+                <!--This is template for making project cards, Once we add more then 6 we should think about slideshow implementation
+                <article class="project-card">
+                    <img class="project-image" src="assets/project-placeholder.jpg" alt="Project screenshot">
+                    <div class="project-body">
+                    <h3 class="project-title">Project Title</h3>
+                    <p class="project-desc">
+                        Project Disc
+                    </p>
+
+                    <ul class="project-tags">
+                        <li>Tag</li>
+                        <li>Tag</li>
+                        <li>Tag</li>
+                    </ul>
+
+                    <div class="project-links">
+                        <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+                    </div>
+                    </div>
+                </article>
+                -->
+                </div>
+            </div>
+        </section>
+        <!---->
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Tech Stack</h2>
+                <p class="section-subtitle">Technologies and tools I’ve worked with.</p>
+
+                <!-- Grid of skill cards -->
+                <div class="skills-grid">
+
+                    <!-- Skill Category Card -->
+                    <div class="skill-card">
+                        <h3 class="skill-title">Languages</h3>
+                        <ul class="skills-list">
+                        <li>Java</li>
+                        <li>C</li>
+                        <li>Python</li>
+                        <li>SQL</li>
+                        <li>JavaScript</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 class="skill-title">Backend & Systems</h3>
+                        <ul class="skills-list">
+                        <li>Java Servlets</li>
+                        <li>Tomcat</li>
+                        <li>Concurrency</li>
+                        <li>Signals</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3 class="skill-title">Tools & Workflow</h3>
+                        <ul class="skills-list">
+                        <li>Git / GitHub</li>
+                        <li>MySQL</li>
+                        <li>Maven</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!---->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-subtitle">
+                Feel free to reach out: I’m always open to opportunities and conversations.
+                </p>
+
+                <div class="contact-grid">
+
+                    <!-- Contact Card -->
+                    <div class="contact-card">
+                        <h3 class="contact-title">Get in Touch</h3>
+
+                        <ul class="contact-list">
+                        <li>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:jcgs2807@gmail.com">jcgs2807@gmail.com</a>
+                        </li>
+
+                        <li>
+                            <span class="contact-label">LinkedIn</span>
+                            <a href="https://www.linkedin.com/in/juan-carlos-garcia-solis-8242b0270/" target="_blank" rel="noopener">
+                            linkedin.com/in/juan-carlos-garcia-solis
+                            </a>
+                        </li>
+
+                        <li>
+                            <span class="contact-label">GitHub</span>
+                            <a href="https://github.com/JuanC2807" target="_blank" rel="noopener">
+                            github.com/JuanC2807
+                            </a>
+                        </li>
+                        </ul>
+                    </div>
+
+                    <!-- CTA Card -->
+                    <div class="contact-card">
+                        <h3 class="contact-title">Looking For</h3>
+
+                        <p class="contact-text">
+                        Software engineering internships or entry level roles where I can grow,
+                        learn from experienced engineers, and contribute to real projects.
+                        </p>
+
+                        <div class="contact-actions">
+                            <a class="btn" href="mailto:jcgs2807@gmail.com">Email Me</a>
+                            <a class="btn" href="assets/Juan_Solis_Resume.pdf" download>Download Resume</a>
+                            <a class="btn btn-outline" href="#projects">View Projects</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!---->
+    </main>
+    <footer>
+        <div class="container footer-inner">
+            <p class="footer-copy">@ <span id="year"></span> Juan Solis</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/juan-carlos-garcia-solis-8242b0270/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/JuanC2807" target="_blank" rel="noopener">GitHub</a>
+                <a href="#home">Back to top</a>
+            </div>
         </div>
-      </nav>
-      <!--Basic Nav Bar-->
-
-    <section id="hero-section">
-    </section>
-
-    <section id="About-me-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <p>Testing this on Left</p>
-          </div>
-          <div class="col-md-6">
-            <p>Testing this on Right</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills-section">
-    </section>
-
-    <section id="contact-section">
-    </section>
-
-    <section id="footer-section">
-    </section>
-    
-    <!--Bootstrap JS Linking-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <!---->
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
