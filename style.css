@@ -1,36 +1,609 @@
-/*Custom css */
-.navbar{
-    z-index: 10;
-    background-color: #101935;
+/* =========================================================
+   GLOBAL RESET + BASE STYLES
+   Purpose:
+   - Reset default browser spacing
+   - Keep sizing predictable with border-box
+   - Set base font + background
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navbar a{
-    color: #E6E6E6;
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #fff2e7; /* Page background (overall theme: light page with dark sections) */
 }
 
-#hero-section{
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(assets/Background.jpg);
-    background-position: center;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    min-height: max-content;
-    padding-top: 50px;
-    padding: 450px 0px;
+/* Smooth scrolling for navbar anchor links */
+html { scroll-behavior: smooth; }
+
+/* Prevent fixed / tall nav from overlapping section headings when clicking anchors */
+section { scroll-margin-top: 90px; }
+
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 2rem;
+
+  background: rgba(33, 24, 50, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-#About-me-section {
-    background-color:#E6E6E6;
-    padding-top: 50px;
-    padding-bottom: 50px;
+
+
+.nav-logo a {
+  color: #fff2e7;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff2e7;
+  text-decoration: none;
+  font-size: 1rem;
+
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #FFDEB9; /* Warm accent for hover */
+}
+
+
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.hero {
+  position: relative;
+  height: 70vh;
+
+  /* Gradient overlay sits on top of image to keep text readable */
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.25)
+    ),
+    url("assets/TempHero.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  position: relative;
+  color: #fff2e7;
+  text-align: center;
+
+  padding: 1rem;
+  max-width: 90%;
+}
+
+.hero-content h1 {
+  font-family: 'Arc One', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+
+
+/* =========================================================
+   SHARED LAYOUT UTILITIES
+   Purpose:
+   - Reusable container to keep content aligned and not full-bleed
+   - Reusable section title/subtitle styles
+   ========================================================= */
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto; /* Center on page */
+}
+
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+
+
+
+/* =========================================================
+   PROJECTS SECTION
+   ========================================================= */
+
+.projects {
+  padding: 4rem 0;
+}
+
+/* Projects grid layout (3 columns -> 2 -> 1) */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Tablet breakpoint: 2 columns */
+@media (max-width: 1000px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile breakpoint: 1 column */
+@media (max-width: 650px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* =========================================================
+   PROJECT CARD STYLES
+   - Card container + hover lift animation
+   - Image header + body content
+   ========================================================= */
+
+.project-card {
+  border-radius: 14px;
+  overflow: hidden;
+
+  /* Glassy card look */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px); /* Lifts on hover */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.project-image {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-body {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.project-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-desc {
+  opacity: 0.9;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+
+
+/* =========================================================
+   PROJECT TAGS
+   ========================================================= */
+
+.project-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding: 0;
+}
+
+.project-tags li {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+
+  /* Purple accent */
+  background: rgba(71, 19, 100, 0.15);
+  border: 1px solid rgba(226, 44, 250, 0.25);
+}
+
+
+
+/* =========================================================
+   BUTTONS - Reusable button styling for project links and section CTAs
+   ========================================================= */
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+
+  text-decoration: none;
+  color: black; /* NOTE: overwritten in dark sections (.about .btn) */
+
+  background: rgba(71, 19, 100, 0.15);
+  border: 1px solid rgba(226, 44, 250, 0.25);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(78, 0, 102, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+}
+
+
+
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+
+
+.about {
+  padding: 4.5rem 0;
+  background: #211832; /* Matches navbar */
+  color: #fff2e7;
+}
+
+/* Make section headings readable on dark background */
+.about .section-title {
+  color: #fff2e7;
+}
+
+.about .section-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Layout: photo left, text/cards right */
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+/* About photo styling (consistent radius + shadow with project cards) */
+.about-photo {
+  width: 100%;
+  max-width: 420px;
+  height: 420px;
+
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Main about paragraph */
+.about-lead {
+  opacity: 0.95;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+/* Cards within about section (two-column -> one-column on mobile) */
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.about-card {
+  border-radius: 14px;
+  padding: 1.25rem;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.about-card-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.about-list {
+  padding-left: 1.2rem;
+  line-height: 1.7;
+  opacity: 0.92;
+}
+
+/* CTA buttons (projects/contact) */
+.about-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Button text needs to be white on dark About section */
+.about .btn {
+  color: #fff2e7;
+}
+
+/* Responsive: stack into one column on smaller screens */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
   }
 
-#About-me-section h2{
-    text-align: center;
-    color: #123458;
+  .about-photo {
+    max-width: 520px;
+    height: 360px;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
-#About-me-Section p{
-    color: #123458;
-    text-align: center;
+.skills {
+  padding: 4.5rem 0;
+  background: transparent;
+  color: inherit;
+}
+
+.skills .section-title,
+.skills .section-subtitle {
+  color: inherit;
+}
+
+
+/* Grid layout */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.skill-card {
+  border-radius: 14px;
+  padding: 1.25rem;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Card heading */
+.skill-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Skill list inside card */
+.skills-list {
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-list li {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+
+  background: rgba(71, 19, 100, 0.15);
+  border: 1px solid rgba(226, 44, 250, 0.25);
+  color: inherit;
+}
+
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+   Purpose:
+   - Final CTA section
+   - Reuses glass card + accent colors from Projects/Skills
+   ========================================================= */
+
+.contact {
+  padding: 4.5rem 0;
+}
+
+/* Layout: two cards side-by-side */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Contact card styling (same as project/skill cards) */
+.contact-card {
+  border-radius: 14px;
+  padding: 1.5rem;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.contact-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Contact info list */
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Label above each contact item */
+.contact-label {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Links */
+.contact-list a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.9;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}
+
+/* Text block in CTA card */
+.contact-text {
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 1.25rem;
+}
+
+/* Buttons */
+.contact-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  transition: transform 0.2s ease;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  background: #211832; /* matches navbar/about */
+  color: #fff2e7;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-copy {
+  opacity: 0.9;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #fff2e7;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  color: #FFDEB9; /* same hover as navbar */
+}
+
+@media (max-width: 650px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
